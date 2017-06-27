@@ -5,37 +5,37 @@ define(['events', 'jquery'], function (events, $) {
     var self = {};
 
     self.add = function add() {
-        var operands = Array.prototype.slice.call(arguments),
-            total = 0;
+        // var operands = Array.prototype.slice.call(arguments),
+        //     total = 0;
 
-        operands.forEach(function (value) {
-            // if (typeof value === 'string') {
-            //     value = parseInt(value, 10) || 0;
-            // }
+        // operands.forEach(function (value) {
+        //     if (typeof value === 'string') {
+        //         value = parseInt(value, 10) || 0;
+        //     }
 
-            total += value;
-        });
+        //     total += value;
+        // });
 
         // $.get('http://numbersapi.com/' + total + '/trivia', function (data) {
-            events.publish('added', {
-                operands: operands,
-                result: total
-                // triviaFact: data
-            });
+        //     events.publish('added', {
+        //         operands: operands,
+        //         result: total,
+        //         triviaFact: data
+        //     });
         // });
         
-        return total;
+        // return total;
     };
 
-    self.addAfterDelay = function addAfterDelay(delay, callback) {
-        // var timeoutDelay = Array.prototype.shift.call(arguments),
-        //     callback = Array.prototype.shift.call(arguments),
-        //     operands = arguments;
+    // self.addAfterDelay = function addAfterDelay(delay, callback) {
+    //     var timeoutDelay = Array.prototype.shift.call(arguments),
+    //         callback = Array.prototype.shift.call(arguments),
+    //         operands = arguments;
 
-        // window.setTimeout(function () {
-        //     callback(self.add.apply(this, operands));
-        // }, timeoutDelay);
-    }
+    //     window.setTimeout(function () {
+    //         callback(self.add.apply(this, operands));
+    //     }, timeoutDelay);
+    // }
 
     return self;
 });

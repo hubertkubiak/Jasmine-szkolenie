@@ -4,27 +4,27 @@ define(['numbers', 'events', 'lib/matchers'], function (numbers, events, matcher
 
     describe('The numbers module', function () {
         describe('The add method', function () {
-            var output;
+            // var output;
             // var originalTimeout;
 
-            beforeEach(function () {
-                this.numberInput1 = 1;
-                this.numberInput2 = 2;
-                this.stringInput1 = '1';
-                this.stringInput2 = 'oops';
+            // beforeEach(function () {
+            //     this.numberInput1 = 1;
+            //     this.numberInput2 = 2;
+            //     this.stringInput1 = '1';
+            //     this.stringInput2 = 'oops';
 
                 // jasmine.addMatchers(matchers);
-            });
+            // });
 
-            it('should accept one or more numberical arguments and return the sum of them', function () {
-               // act
+            // it('should accept one or more numberical arguments and return the sum of them', function () {
+            //    act
             //    output = numbers.add(this.numberInput1, this.numberInput2);
 
-               // assert
+            //    assert
             //    expect(output).toBeDefined();
             //    expect(output).toEqual(3);
             //    expect(output).not.toEqual(4);
-            });
+            // });
 
             // it('should try to parse an integer when a string is passed to the method', function () {
             //    output = numbers.add(this.numberInput1, this.stringInput1);
@@ -38,10 +38,10 @@ define(['numbers', 'events', 'lib/matchers'], function (numbers, events, matcher
             //    expect(output).toEqual(1);
             // });
 
-            it('should publish an added event showing the operands passed to the method, the result and a number fact', function () {
+            // it('should publish an added event showing the operands passed to the method, the result and a number fact', function () {
                 // var x, length, calls;
 
-                spyOn(events, 'publish');
+                // spyOn(events, 'publish');
                 // spyOn(events, 'publish').and.callThrough();
                 // spyOn(events, 'publish').and.returnValue(false);
                 // spyOn(events, 'publish').and.callFake(function (name, args) {
@@ -54,9 +54,9 @@ define(['numbers', 'events', 'lib/matchers'], function (numbers, events, matcher
                 // }).toThrowError('oops');
                 // expect(events.publish.calls.any()).toBe(false);
 
-                numbers.add(this.numberInput1, this.numberInput2);
+                // numbers.add(this.numberInput1, this.numberInput2);
 
-                expect(events.publish).toHaveBeenCalled();
+                // expect(events.publish).toHaveBeenCalled();
 
                 // expect(events.publish).toHaveBeenCalledWith('added', { operands: [this.numberInput1, this.numberInput2], result: 3 });
 
@@ -75,53 +75,86 @@ define(['numbers', 'events', 'lib/matchers'], function (numbers, events, matcher
                 // }
 
                 // var that = this;
-                
+
                 // events.subscribe('added', function (data) {
                 //     expect(data.operands).toEqual([that.numberInput1, that.numberInput2]);
                 //     expect(data.result).toEqual(3);
                 //     expect(data.triviaFact).toEqual(jasmine.any(String));
                 //     done();
-                   
+
                 // });
 
-                
-                
-            });
+            // });
 
-            xit('should return numbers that are either odd or even', function () {
-                output = numbers.add(this.numberInput1, this.numberInput2);
+            // xit('should return numbers that are either odd or even', function () {
+            //     output = numbers.add(this.numberInput1, this.numberInput2);
 
-                expect(output).toBeOdd();
+            //     expect(output).toBeOdd();
 
-                output = numbers.add(this.numberInput1, this.numberInput1);
+            //     output = numbers.add(this.numberInput1, this.numberInput1);
 
-                expect(output).not.toBeOdd();
-                expect(1).toBeOdd();
-            });
+            //     expect(output).not.toBeOdd();
+            //     expect(1).toBeOdd();
+            // });
         });
 
-        describe('The addAfterDelay method', function () {
-            var noop = function () { };
+        // describe('The addAfterDelay method', function () {
+            // var noop = function () { };
 
-            beforeEach(function () {
-                spyOn(numbers, 'add');
+            // beforeEach(function () {
+            //     spyOn(numbers, 'add');
 
-                jasmine.clock().install();
-            });
+            //     jasmine.clock().install();
+            // });
 
-            afterEach(function () {
-                jasmine.clock().uninstall();
-            });
+            // afterEach(function () {
+            //     jasmine.clock().uninstall();
+            // });
 
-            it('should invoke the add method after a specified delay', function () {
-                numbers.addAfterDelay(1000, noop, 1, 2);
+            // it('should invoke the add method after a specified delay', function () {
+            //     numbers.addAfterDelay(1000, noop, 1, 2);
 
-                expect(numbers.add).not.toHaveBeenCalled();
+            //     expect(numbers.add).not.toHaveBeenCalled();
 
-                jasmine.clock().tick(1001);
+            //     jasmine.clock().tick(1001);
 
-                expect(numbers.add).toHaveBeenCalled();
-            });
-        });
+            //     expect(numbers.add).toHaveBeenCalled();
+            // });
+        // });
+
+        // describe("Asynchronous specs", function () {
+        //     var value;
+
+        //     beforeEach(function (done) {
+        //         setTimeout(function () {
+        //             value = 0;
+        //             done();
+        //         }, 1);
+        //     });
+
+        //     it("should support async execution of test preparation and expectations", function (done) {
+        //         value++;
+        //         expect(value).toBeGreaterThan(0);
+        //         done();
+        //     });
+
+        //     describe("long asynchronous specs", function () {
+        //         var originalTimeout;
+        //         beforeEach(function () {
+        //             originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
+        //             jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
+        //         });
+
+        //         it("takes a long time", function (done) {
+        //             setTimeout(function () {
+        //                 done();
+        //             }, 9000);
+        //         });
+
+        //         afterEach(function () {
+        //             jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
+        //         });
+        //     });
+        // });
     });
 });
